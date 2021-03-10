@@ -6,6 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 function Authentication() {
     const dispatch = useDispatch();
+    const [errorActive, setErrorActive] = React.useState(false);
     const [newLogin, setNewLogin] = React.useState('');
     const [newPassword, setNewPassword] = React.useState('');
     const authentication = useSelector(({data}) => data.authentication);
@@ -34,6 +35,9 @@ function Authentication() {
         dispatch(fetchContacts(newobj));
         setNewLogin('');
         setNewPassword('');
+        if (!authentication) (
+            setErrorActive(true)
+        )
     }
 
     if (authentication) {
@@ -43,6 +47,7 @@ function Authentication() {
     return (
         <>
             <h1>Авторизация</h1>
+            <div className={errorActive ? "error active" : "error"}>Неверный логин или пароль!</div>
             <form onSubmit={onAuthenticationUser}>
                 <div className='modal__content-form'>
                     <div className='modal__content-form-left'>

@@ -23,9 +23,9 @@ function Contacts() {
       });
     }
 
-    if (authentication === false) {
+    if (!authentication) {
       return <Redirect to='/'/>
-  } 
+    } 
   
     return (
       <>

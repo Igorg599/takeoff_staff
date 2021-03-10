@@ -24,6 +24,17 @@ code {
     color: rgb(78, 62, 62);
   }
 }
+
+.error {
+  font-size: 16px;
+  color: red;
+  text-align: center;
+  display: none;
+}
+
+.error.active {
+  display: block;
+}
   
 .userlist {
     margin-top: 30px;
