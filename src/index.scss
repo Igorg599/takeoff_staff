@@ -35,6 +35,11 @@ code {
 .error.active {
   display: block;
 }
+
+.exit {
+  display: flex;
+  justify-content: flex-end;
+}
   
 .userlist {
     margin-top: 30px;

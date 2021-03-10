@@ -28,21 +28,21 @@ const data = (state = initialState, action) => {
             };
 
         case 'SORT_USERS_NAME':
-            const newItemsName = state.items.sort((a, b) => a.name > b.name ? 1 : -1);
+            const newItemsName = state.contacts.sort((a, b) => a.name > b.name ? 1 : -1);
             return {
                 ...state,
                 contacts: [...newItemsName]
             };
 
         case 'SORT_USERS_AGE':
-            const newItemsTel = state.items.sort((a, b) => a.tel > b.tel ? 1 : -1);
+            const newItemsTel = state.contacts.sort((a, b) => a.tel > b.tel ? 1 : -1);
             return {
                 ...state,
                 contacts: [...newItemsTel]
             };
 
         case 'REMOVE_USER_ITEM':
-            const newItemsRemove = state.items.filter((item) => item.id !== action.payload);
+            const newItemsRemove = state.contacts.filter((item) => item.id !== action.payload);
             return {
                 ...state,
                 contacts: newItemsRemove,
@@ -50,7 +50,7 @@ const data = (state = initialState, action) => {
         
         case 'CHANGE_USER':
             const newItems = [action.payload];
-            const replacedItems = state.items.map(e => {
+            const replacedItems = state.contacts.map(e => {
                 if (newItems.some(({ id }) => id === e.id)) {
                   return newItems.find(({ id }) => id === e.id);
                 }
@@ -62,10 +62,17 @@ const data = (state = initialState, action) => {
             };
 
         case 'ADD_NEW_USER':
-            const newUser = [...state.items, action.payload]; 
+            const newUser = [...state.contacts, action.payload]; 
             return {
                 ...state,
                 contacts: newUser,
+            };
+
+        case 'CHANGE_EXIT':
+            return {
+                ...state,
+                contacts: null,
+                authentication: null
             };
 
         default:

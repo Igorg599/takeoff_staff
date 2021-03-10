@@ -39,3 +39,7 @@ export const addNewUser = (obj) => ({
     type: 'ADD_NEW_USER',
     payload: obj,
 });
+
+export const ChengeExit = () => ({
+    type: 'CHANGE_EXIT'
+});
