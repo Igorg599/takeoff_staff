@@ -14,10 +14,15 @@ code {
 }
   
 .wrapper {
-    width: calc(100vw - 100px);
-    height: 100%;
-    margin: 20px auto;
-    max-width: 1400px;
+  width: calc(100vw - 100px);
+  height: 100%;
+  margin: 20px auto;
+  max-width: 1400px;
+  h1 {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(78, 62, 62);
+  }
 }
   
 .userlist {
@@ -310,4 +315,9 @@ code {
 .cl-btn-4:hover:after {
   transform: rotate(180deg);
   background: #FFF; 
+}
+
+.authentication__button {
+  display: flex;
+  justify-content: center;
 }
