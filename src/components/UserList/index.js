@@ -8,11 +8,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import UserListItem from './UserListItem';
 import UserTableItem from './UserTableItem';
 
-const UserList = ({users}) => {
+const UserList = ({contacts}) => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [visibleList, setVisibleList] = React.useState(false);
-
-    console.log(users)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -57,7 +55,7 @@ const UserList = ({users}) => {
             </div>
             {visibleList ?
                 <div className='userlist'>
-                    {users && users.map((item, index) => (
+                    {contacts && contacts.map((item, index) => (
                         <UserListItem 
                         index = {index}
                         id = {item.id}
@@ -74,7 +72,7 @@ const UserList = ({users}) => {
                         <p>Телефон</p>
                     </div>
                     <div className='userlisttable'>
-                        {users && users.map((item, index) => (
+                        {contacts && contacts.map((item, index) => (
                             <UserTableItem 
                             index = {index}
                             id = {item.id}

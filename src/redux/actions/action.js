@@ -12,6 +12,11 @@ export const setUsers = (items) => ({
     payload: items,
 });
 
+export const fetchContacts = (items) => ({
+    type: 'SET_CONTACTS',
+    payload: items,
+});
+
 export const sortUsersName = () => ({
     type: 'SORT_USERS_NAME'
 });

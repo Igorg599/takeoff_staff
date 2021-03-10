@@ -1,38 +1,36 @@
 import React from 'react';
 import UserList from '../components/UserList';
-import {useSelector, useDispatch} from 'react-redux';
-import {fetchUsers} from '../redux/actions/action';
+import {useSelector} from 'react-redux';
 import Nav from '../components/Nav';
+import { Redirect } from 'react-router-dom';
 
 function Contacts() {
-    const dispatch = useDispatch();
-    const users = useSelector(({data}) => data.items);
+    const contacts = useSelector(({data}) => data.contacts);
     const [inputVolume, setInputVolume] = React.useState('');
+    const authentication = useSelector(({data}) => data.authentication);
   
     function searchUser(value) {
       setInputVolume(value);
     }
   
-    React.useEffect(() => {
-        if (users === null) {
-        dispatch(fetchUsers());
-        } return users;
-    }, [dispatch, users]);
+    let newContacts = [];
   
-    let newUsers = [];
-  
-    if (users === null) {
-      return newUsers;
+    if (contacts === null) {
+      return newContacts;
     } else {
-      newUsers = users.filter((location) => {
+      newContacts = contacts.filter((location) => {
         return location.name.toLowerCase().indexOf(inputVolume) > -1
       });
     }
+
+    if (authentication === false) {
+      return <Redirect to='/'/>
+  } 
   
     return (
       <>
         <Nav searchUser={searchUser}/>
-        <UserList users={newUsers}/>
+        <UserList contacts={newContacts}/>
       </>
     );
   }
