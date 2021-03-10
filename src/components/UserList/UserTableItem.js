@@ -28,7 +28,7 @@ const UserTableItem = ({id, name, tel, onRemove, index}) => {
         const newobj = {
             id: id,
             name: newName,
-            age: newTel,
+            tel: newTel,
         }
         dispatch(changeUser(newobj));
         setDataInput(!dataInput);
