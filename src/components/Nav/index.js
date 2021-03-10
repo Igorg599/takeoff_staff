@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextField } from '@material-ui/core';
+import SortPopUp from './SortPopUp';
 
 const Nav = ({searchUser}) => {
 
@@ -15,6 +16,7 @@ const Nav = ({searchUser}) => {
                 label="Поиск по имени" 
                 variant="outlined" 
                 onChange={onUpdateSearch}/>
+                <SortPopUp/>
             </div>
         </>
     )
