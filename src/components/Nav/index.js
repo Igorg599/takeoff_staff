@@ -1,8 +1,10 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField, Button } from '@material-ui/core';
 import SortPopUp from './SortPopUp';
+import UserModal from './UserModal';
 
 const Nav = ({searchUser}) => {
+    const [modalActive, setmodalActive] = React.useState(false);
 
     function onUpdateSearch(e) {
         searchUser(e.target.value.toLowerCase());
@@ -11,6 +13,9 @@ const Nav = ({searchUser}) => {
     return (
         <>
             <div className='nav'>
+                <Button onClick={() => {setmodalActive(true); document.body.style.overflow = 'hidden'}} variant="contained" color="primary">
+                    Добавить нового пользователя
+                </Button>
                 <TextField 
                 id="outlined-basic" 
                 label="Поиск по имени" 
@@ -18,6 +23,7 @@ const Nav = ({searchUser}) => {
                 onChange={onUpdateSearch}/>
                 <SortPopUp/>
             </div>
+            <UserModal active={modalActive} setActive={setmodalActive}/>
         </>
     )
 }
